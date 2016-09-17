@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+
+  <classPathEntry
+        location="E:\software\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" />
+  
+  <!--可选属性 defaultModelType="conditional" -->
+  <!-- 不生产example：targetRuntime="MyBatis3Simple" -->
+  <context id="context1" targetRuntime="MyBatis3" defaultModelType="flat">
+  	
+  	<!-- 自定义注释：type="me.skyline.common.mybatis.MyCommentGenerator" -->
+  	<commentGenerator>
+  			 <!-- 去除自动生成的时间戳 true：是 ： false:否 -->
+             <property name="suppressDate" value="true"/>
+             <!-- 去除自动生成的注释 true：是 ： false:否 -->
+             <property name="suppressAllComments" value="true"/>
+  	</commentGenerator>
+  	
+  	<!-- 数据库连接信息 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" 
+    				connectionURL="jdbc:mysql://localhost:3306/skyline?useUnicode=true" 
+   				 	userId="root" 
+   				 	password="102030" />
+   
+    <!-- 实体类 -->
+    <javaModelGenerator targetPackage="me.skyline.modules.login.entity" targetProject="do-java-code" >
+    	<property name="constructorBased" value="false"/>
+    	<!-- 对数据库查询结果进行trim操作 -->
+    	<property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+    
+    <!-- sql-->
+    <sqlMapGenerator targetPackage="me.skyline.modules.login.mapper" targetProject="do-java-code" >
+    	<property name="enableSubPackages" value="true"/>
+    	
+    </sqlMapGenerator>
+    
+    <!-- dao接口 -->
+    <javaClientGenerator targetPackage="me.skyline.modules.login.dao" targetProject="do-java-code" type="XMLMAPPER" >
+    	<property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+    
+    <!-- 字段映射 -->
+    <!-- tableName="%" :生成全部的表 -->
+    <table tableName="user_info" domainObjectName="UserInfo" enableCountByExample="false" 
+    		enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    		selectByExampleQueryId="false">
+    </table>
+    
+  </context>
+</generatorConfiguration>
