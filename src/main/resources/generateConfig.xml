@@ -3,7 +3,7 @@
 <generatorConfiguration >
 
   <classPathEntry
-        location="E:\software\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" />
+        location="D:\java\maven\repo\mysql\mysql-connector-java\5.1.39\mysql-connector-java-5.1.39.jar" />
   
   <!--可选属性 defaultModelType="conditional" -->
   <!-- 不生产example：targetRuntime="MyBatis3Simple" -->
@@ -24,20 +24,20 @@
    				 	password="102030" />
    
     <!-- 实体类 -->
-    <javaModelGenerator targetPackage="me.skyline.modules.login.entity" targetProject="do-java-code" >
+    <javaModelGenerator targetPackage="com.skyline.note.entity" targetProject="skyline" >
     	<property name="constructorBased" value="false"/>
     	<!-- 对数据库查询结果进行trim操作 -->
     	<property name="trimStrings" value="true"/>
     </javaModelGenerator>
     
     <!-- sql-->
-    <sqlMapGenerator targetPackage="me.skyline.modules.login.mapper" targetProject="do-java-code" >
+    <sqlMapGenerator targetPackage="com.skyline.note.entity.mapper" targetProject="skyline" >
     	<property name="enableSubPackages" value="true"/>
     	
     </sqlMapGenerator>
     
     <!-- dao接口 -->
-    <javaClientGenerator targetPackage="me.skyline.modules.login.dao" targetProject="do-java-code" type="XMLMAPPER" >
+    <javaClientGenerator targetPackage="com.skyline.note.dao" targetProject="skyline" type="XMLMAPPER" >
     	<property name="enableSubPackages" value="true"/>
     </javaClientGenerator>
     
